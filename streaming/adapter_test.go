@@ -25,8 +25,9 @@ import (
 	"github.com/buildpacks/libcnb"
 	. "github.com/onsi/gomega"
 	"github.com/paketo-buildpacks/libpak"
-	"github.com/projectriff/streaming-http-adapter-buildpack/streaming"
 	"github.com/sclevine/spec"
+
+	"github.com/projectriff/streaming-http-adapter-buildpack/streaming"
 )
 
 func testAdapter(t *testing.T, context spec.G, it spec.S) {
