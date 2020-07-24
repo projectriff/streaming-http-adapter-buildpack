@@ -12,6 +12,14 @@ The buildpack will do the following:
 
 * Contributes a streaming HTTP adapter to a layer with all commands on `$PATH`
 
+### Bindings
+The buildpack optionally accepts the following bindings:
+
+#### Type: `dependency-mapping`
+|Key                   | Value   | Description
+|----------------------|---------|------------
+|`<dependency-digest>` | `<uri>` | If needed, the buildpack will fetch the dependency with digest `<dependency-digest>` from `<uri>`
+
 ## License
 This buildpack is released under version 2.0 of the [Apache License][a].
 
