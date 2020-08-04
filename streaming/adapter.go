@@ -56,6 +56,6 @@ func (a Adapter) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 	})
 }
 
-func (Adapter) Name() string {
-	return "adapter"
+func (a Adapter) Name() string {
+	return a.LayerContributor.LayerName()
 }
