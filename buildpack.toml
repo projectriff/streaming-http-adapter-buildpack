@@ -24,6 +24,9 @@ homepage = "https://github.com/projectriff/streaming-http-adapter-buildpack"
 id = "heroku-18"
 
 [[stacks]]
+id = "heroku-20"
+
+[[stacks]]
 id = "io.buildpacks.stacks.bionic"
 
 [[stacks]]
@@ -35,7 +38,7 @@ name    = "riff Streaming HTTP Adapter"
 version = "0.5.4"
 uri     = "https://storage.googleapis.com/download/storage/v1/b/projectriff/o/streaming-http-adapter%2Fstreaming-http-adapter-linux-amd64-0.5.4-20200610023426-2153adc7da97497c.tgz?generation=1591756563479537&alt=media"
 sha256  = "d408dcee6beaf5edb76ce8cae369e7cd2b6f374248961c9cabcddf37ff935a28"
-stacks  = [ "heroku-18", "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" ]
+stacks  = [ "heroku-18", "heroku-20", "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" ]
 
   [[metadata.dependencies.licenses]]
   type = "Apache-2.0"
