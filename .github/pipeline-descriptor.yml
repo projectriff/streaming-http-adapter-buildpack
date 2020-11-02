@@ -1,5 +1,3 @@
-path: ../../../projectriff/streaming-http-adapter-buildpack
-
 codeowners:
 - path:  "*"
   owner: "@projectriff/riff-dev"
