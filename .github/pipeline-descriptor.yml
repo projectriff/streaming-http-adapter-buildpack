@@ -1,0 +1,22 @@
+path: ../../../projectriff/streaming-http-adapter-buildpack
+
+codeowners:
+- path:  "*"
+  owner: "@projectriff/riff-dev"
+
+package:
+  repository:     gcr.io/projectriff/streaming-http-adapter
+  register:       true
+  registry_token: ${{ secrets.RIFF_BUILDPACK_REGISTRY_TOKEN }}
+
+docker_credentials:
+- registry: gcr.io
+  username: _json_key
+  password: ${{ secrets.RIFF_GCLOUD_SERVICE_ACCOUNT_KEY }}
+
+dependencies:
+- id:   streaming-http-adapter
+  uses: docker://ghcr.io/paketo-buildpacks/actions/gcs-dependency:main
+  with:
+    bucket: projectriff
+    glob:   streaming-http-adapter/streaming-http-adapter-linux-amd64-([\d\.]+)-(?:[\d]+)-(?:[\w]+).tgz
