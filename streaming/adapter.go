@@ -32,8 +32,11 @@ type Adapter struct {
 	Logger           bard.Logger
 }
 
-func NewAdapter(dependency libpak.BuildpackDependency, cache libpak.DependencyCache, plan *libcnb.BuildpackPlan) Adapter {
-	return Adapter{LayerContributor: libpak.NewDependencyLayerContributor(dependency, cache, plan)}
+func NewAdapter(dependency libpak.BuildpackDependency, cache libpak.DependencyCache) (Adapter, libcnb.BOMEntry) {
+	contributor, entry := libpak.NewDependencyLayer(dependency, cache, libcnb.LayerTypes{
+		Launch: true,
+	})
+	return Adapter{LayerContributor: contributor}, entry
 }
 
 func (a Adapter) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
@@ -52,7 +55,7 @@ func (a Adapter) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 		}
 
 		return layer, nil
-	}, libpak.LaunchLayer)
+	})
 }
 
 func (a Adapter) Name() string {
