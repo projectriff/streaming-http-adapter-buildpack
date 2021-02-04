@@ -55,7 +55,7 @@ func testAdapter(t *testing.T, context spec.G, it spec.S) {
 		}
 		dc := libpak.DependencyCache{CachePath: "testdata"}
 
-		a := streaming.NewAdapter(dep, dc, &libcnb.BuildpackPlan{})
+		a, _ := streaming.NewAdapter(dep, dc)
 		layer, err := ctx.Layers.Layer("test-layer")
 		Expect(err).NotTo(HaveOccurred())
 
