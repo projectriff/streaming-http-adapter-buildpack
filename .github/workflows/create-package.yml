@@ -77,7 +77,7 @@ jobs:
                 echo "experimental = true" >> "${HOME}"/.pack/config.toml
             - uses: actions/checkout@v2
             - if: ${{ false }}
-              uses: actions/cache@v2.1.4
+              uses: actions/cache@v2
               with:
                 key: ${{ runner.os }}-go-${{ hashFiles('**/buildpack.toml', '**/package.toml') }}
                 path: |-
@@ -176,7 +176,7 @@ jobs:
                 DIGEST: ${{ steps.package.outputs.digest }}
                 GITHUB_TOKEN: ${{ secrets.RIFF_GITHUB_TOKEN }}
             - if: ${{ true }}
-              uses: docker://ghcr.io/buildpacks/actions/registry:main
+              uses: docker://ghcr.io/buildpacks/actions/registry/request-add-entry:4.0.1
               with:
                 address: gcr.io/projectriff/streaming-http-adapter@${{ steps.package.outputs.digest }}
                 id: projectriff/streaming-http-adapter
